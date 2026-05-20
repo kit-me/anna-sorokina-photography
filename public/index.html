@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Sorokina | Professional Photography</title>
+    <style>
+        :root {
+            --primary-dark: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --serif: 'Didot', 'Playfair Display', serif;
+            --sans: 'Inter', '-apple-system', 'BlinkMacSystemFont', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--text-primary);
+        }
+
+        .social-header {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            padding-left: 2rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-header a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-header a:hover {
+            color: var(--text-primary);
+        }
+
+        .social-header a.ig-icon {
+            width: 24px;
+            height: 24px;
+            font-size: 0;
+        }
+
+        .social-header a.ig-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            transition: all 0.3s;
+        }
+
+        .social-header a.wa-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-header a.wa-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            transition: all 0.3s;
+        }
+
+        .lang-toggle {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--text-primary);
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--text-primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-bg-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            animation: scrollUp 48s linear infinite;
+            width: 280px;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(calc(-100vh - 1520px)); }
+        }
+
+        .hero-bg-column {
+            animation-delay: 0s;
+        }
+
+        .hero-bg-image {
+            flex: 0 0 auto;
+            height: 380px;
+            width: 280px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+        }
+
+        .hero-bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 3rem 4rem;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        .hero-name {
+            font-family: 'Didot', 'Playfair Display', 'Bodoni', serif;
+            font-size: 6rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+            font-variant: normal;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-buttons {
+            display: none;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-primary:hover {
+            background: var(--text-secondary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: black;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 6rem 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        section h2 {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-style: italic;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .specializations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .spec-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .spec-item h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-family: var(--serif);
+            font-size: 2rem;
+            margin: 1.5rem 0;
+            font-weight: 700;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .service-card li:before {
+            content: "✓ ";
+            color: var(--text-primary);
+            margin-right: 0.5rem;
+        }
+
+        .add-ons {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 1.5rem;
+        }
+
+        .add-ons h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .add-ons p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== BLOG SECTION ===== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .blog-post:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== POLICY SECTION ===== */
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ===== BOOKING SECTION ===== */
+        .booking-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .booking-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-family: var(--sans);
+            border-radius: 3px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            color: black;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--text-secondary);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .social-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ===== STICKY BOOK BUTTON ===== */
+        .sticky-book-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sticky-book-btn:hover {
+            background: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 5%;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .header-right {
+                width: 100%;
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .social-header {
+                padding: 0;
+                border: none;
+                margin-left: auto;
+            }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-book-btn {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== LANGUAGE SPECIFIC ===== */
+        [data-lang="uk"] {
+            display: none !important;
+        }
+
+        [data-lang="en"] {
+            display: revert !important;
+        }
+
+        html[lang="uk"] [data-lang="en"] {
+            display: none !important;
+        }
+
+        html[lang="uk"] [data-lang="uk"] {
+            display: revert !important;
+        }
+
+        /* Modal for portfolio */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .modal-prev {
+            left: 2rem;
+        }
+
+        .modal-next {
+            right: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Anna Sorokina</div>
+        <div class="header-right">
+            <nav>
+                <a href="#home" data-lang="en">HOME</a>
+                <a href="#about" data-lang="en">ABOUT</a>
+                <a href="#services" data-lang="en">SERVICES</a>
+                <a href="#portfolio" data-lang="en">PORTFOLIO</a>
+                <a href="#blog" data-lang="en">BLOG</a>
+                <a href="#policy" data-lang="en">POLICY</a>
+                <a href="#contact" data-lang="en">CONTACT</a>
+
+                <a href="#home" data-lang="uk">ГОЛОВНА</a>
+                <a href="#about" data-lang="uk">ПРО МЕНЕ</a>
+                <a href="#services" data-lang="uk">ПОСЛУГИ</a>
+                <a href="#portfolio" data-lang="uk">ПОРТФОЛІО</a>
+                <a href="#blog" data-lang="uk">БЛОГ</a>
+                <a href="#policy" data-lang="uk">ПОЛІТИКА</a>
+                <a href="#contact" data-lang="uk">КОНТАКТИ</a>
+            </nav>
+            <div class="social-header">
+                <a href="https://www.instagram.com/hanna_sorokina" target="_blank" title="Instagram" class="ig-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <circle cx="17.5" cy="6.5" r="1.5"></circle>
+                    </svg>
+                </a>
+                <a href="https://wa.me/12046981788" target="_blank" title="WhatsApp" class="wa-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 21l1.65-5.965C3.8 12.8 3 10.9 3 8.9c0-4.976 4.024-9 9-9s9 4.024 9 9-4.024 9-9 9c-1.9 0-3.8-.8-5.1-2.15L3 21z"></path>
+                        <path d="M9 12h.01"></path>
+                        <path d="M12 12h.01"></path>
+                        <path d="M15 12h.01"></path>
+                    </svg>
+                </a>
+                <button class="lang-toggle" onclick="toggleLanguage()">UA</button>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH SCROLLING IMAGES -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-bg-column">
+                <div class="hero-bg-image"><img src="images/hero-1.jpg" alt=""></div>
+                <div class="hero-bg-image"><img src="images/hero-2.jpg" alt=""></div>
+                <div class="hero-bg-image"><img src="images/hero-3.jpg" alt=""></div>
+                <div class="hero-bg-image"><img src="images/hero-4.jpg" alt=""></div>
+                <!-- Duplicate for infinite loop -->
+                <div class="hero-bg-image"><img src="images/hero-1.jpg" alt=""></div>
+                <div class="hero-bg-image"><img src="images/hero-2.jpg" alt=""></div>
+                <div class="hero-bg-image"><img src="images/hero-3.jpg" alt=""></div>
+                <div class="hero-bg-image"><img src="images/hero-4.jpg" alt=""></div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-name" data-lang="en">ANNA SOROKINA</h1>
+            <h1 class="hero-name" data-lang="uk">АННА СОРОКІНА</h1>
+            <p class="hero-tagline" data-lang="en">Professional Fashion & Portrait Photography in Winnipeg</p>
+            <p class="hero-tagline" data-lang="uk">Професійна мода та портретна фотографія у Вінніпезі</p>
+            <div class="cta-buttons">
+                <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">
+                    <span data-lang="en">BOOK SESSION</span>
+                    <span data-lang="uk">ЗАБРОНЮВАТИ</span>
+                </button>
+                <button class="btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
+                    <span data-lang="en">VIEW WORK</span>
+                    <span data-lang="uk">ПЕРЕГЛЯНУТИ РОБОТИ</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <h2 data-lang="en">About The Photographer</h2>
+            <h2 data-lang="uk">Про Фотографа</h2>
+
+            <div class="about-content">
+                <p class="about-text" data-lang="en">Have you ever looked at someone's photographs and instantly felt emotion, atmosphere, style, or even a story behind the image? That is exactly how Anna sees photography.</p>
+                <p class="about-text" data-lang="uk">Ви коли-небудь дивилися на чиюсь фотографію та відразу відчували емоцію, атмосферу, стиль або навіть історію за зображенням? Саме так Анна бачить фотографію.</p>
+
+                <p class="about-text" data-lang="en">Anna is a Winnipeg-based photographer and visual creator with over 5 years of experience in photography and visual content creation. What once started as a creative hobby and passion gradually grew into something much bigger. During her time in Europe, her portfolio and artistic approach received strong positive feedback, including recognition from creative circles in Germany, which inspired her to continue developing photography as a full professional endeavor.</p>
+                <p class="about-text" data-lang="uk">Анна — фотограф та візуальна творець з Вінніпезу з понад 5 років досвіду у фотографії та створенні візуального контенту. Те, що розпочалося як творча хобі та пристрасть, поступово виросло в щось набагато більше. Під час свого перебування в Європі її портфоліо та художній підхід отримали позитивний відгук, включаючи визнання від творчих кіл у Німеччині, що надихнуло її продовжити розвиток фотографії як повноцінної професійної діяльності.</p>
+
+                <p class="about-text" data-lang="en">Her creative background includes professional education in two photography schools, from beginner to advanced-level training, as well as participation in numerous workshops in editorial and e-commerce photography. Over the years, her work has been published in international magazines in Spain, the United States, and Portugal. She has also participated in international photography competitions, including the World Photography Awards 2022, where her work received recognition in the Fashion Photography category.</p>
+                <p class="about-text" data-lang="uk">Її творче походження включає професійну освіту в двох фотографічних школах, від початківців до просунутого рівня, а також участь у численних семінарах з редакційної та е-комерційної фотографії. Протягом років її роботи були опубліковані в міжнародних журналах Іспанії, США та Португалії. Вона також брала участь у міжнародних фотографічних конкурсах, включаючи World Photography Awards 2022, де її роботи отримали визнання в категорії "Фотографія моди".</p>
+
+                <p class="about-text" data-lang="en">Anna specializes in fashion portraiture, lifestyle photography, personal branding, creative and editorial work, as well as social media content creation. She has experience collaborating with modeling agencies and working with both beginner and professional models. Her portfolio reflects a multicultural approach to photography, and she genuinely enjoys working with people from different cultures, styles, appearances, and creative visions.</p>
+                <p class="about-text" data-lang="uk">Анна спеціалізується на модній портретії, lifestyle фотографії, особистому брендингу, творчій та редакційній роботі, а також на створенні контенту для соціальних медіа. У неї є досвід співпраці з модельними агентствами та роботи як з початківцями, так і з професійними моделями. Її портфоліо відображає багатокультурний підхід до фотографії, і вона справді насолоджується роботою з людьми різних культур, стилів, зовнішнього вигляду та творчих бачень.</p>
+
+                <p class="about-text" data-lang="en">Anna has her own signature approach to posing guidance for people who may feel uncomfortable in front of the camera or have little experience with photoshoots. Her goal is to make the process feel natural, relaxed, and easy both for the client and for herself during the session. For editing and post-production, she works with both natural retouching and high-end beauty and fashion retouching depending on the artistic direction and goals of the project.</p>
+                <p class="about-text" data-lang="uk">Анна має свій власний підхід до керування позою для людей, які можуть почувати себе некомфортно перед камерою або мають мало досвіду з фотосесіями. Її мета — зробити процес природним, розслабленим та легким як для клієнта, так і для неї самої під час сесії. Для редагування та постпродакшену вона працює як з природним ретушуванням, так і з високовартісним ретушуванням краси та моди залежно від художнього спрямування та цілей проекту.</p>
+
+                <p class="about-text" data-lang="en">In addition to photography, Anna also creates social media reels, visual concepts, moodboards, and styling guidance to help build cohesive and aesthetically balanced final results. Whether you're looking for a personal photoshoot, branding content, editorial visuals, fashion-inspired portraits, or creative collaboration — her goal is to help bring your vision to life in a professional, artistic, and visually meaningful way.</p>
+                <p class="about-text" data-lang="uk">Крім фотографії, Анна також створює реалізмі соціальних медіа, візуальні концепції, мудборди та рекомендації стилю, щоб допомогти створити узгоджені та естетично збалансовані кінцеві результати. Незалежно від того, чи ви шукаєте особисту фотосесію, брендовий контент, редакційні візуальні матеріали, портрети, натхненні модою, чи творчу співпрацю — її мета — допомогти втілити вашу візію професійним, художнім та візуально значущим способом.</p>
+
+                <div class="specializations">
+                    <div class="spec-item">
+                        <h3 data-lang="en">Fashion Photography</h3>
+                        <h3 data-lang="uk">Модна Фотографія</h3>
+                        <p data-lang="en">Editorial, creative, styling</p>
+                        <p data-lang="uk">Редакційна, творча, стайлінг</p>
+                    </div>
+                    <div class="spec-item">
+                        <h3 data-lang="en">Portrait Work</h3>
+                        <h3 data-lang="uk">Портретна Робота</h3>
+                        <p data-lang="en">Personal, lifestyle, branding</p>
+                        <p data-lang="uk">Персональна, lifestyle, брендинг</p>
+                    </div>
+                    <div class="spec-item">
+                        <h3 data-lang="en">Content Creation</h3>
+                        <h3 data-lang="uk">Створення Контенту</h3>
+                        <p data-lang="en">Social media, reels, visuals</p>
+                        <p data-lang="uk">Соціальні медіа, реалізмі, візуалізація</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <div class="container">
+            <h2 data-lang="en">Services & Pricing</h2>
+            <h2 data-lang="uk">Послуги та Ціни</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 data-lang="en">Mini Session</h3>
+                    <h3 data-lang="uk">Міні Сесія</h3>
+                    <p data-lang="en">A short and easy photo session created for personal use with a relaxed and casual approach that does not require long preparation. Perfect for solo portraits, couple sessions, two friends photoshoots, seasonal portraits, lifestyle photos, or simply capturing a beautiful moment. This package is intended for non-commercial use only.</p>
+                    <p data-lang="uk">Коротка і легка фотосесія, створена для особистого використання із розслабленим та невимушеним підходом, який не потребує тривалої підготовки. Ідеальна для персональних портретів, сесій для пар, фотосесій двох друзів, сезонних портретів, lifestyle фото або просто фіксації красивого моменту. Цей пакет призначений тільки для некомерційного використання.</p>
+                    <div class="price">$160 CAD</div>
+                    <ul>
+                        <li data-lang="en">30-minute session</li>
+                        <li data-lang="uk">30-хвилинна сесія</li>
+                    </ul>
+                    <div class="add-ons">
+                        <h4 data-lang="en">Add-ons</h4>
+                        <h4 data-lang="uk">Додатки</h4>
+                        <p data-lang="en">Extra Image: +$20 | Full Gallery: +$120</p>
+                        <p data-lang="uk">Додаткове фото: +$20 | Повна галерея: +$120</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-lang="en">First Experience</h3>
+                    <h3 data-lang="uk">Перший Досвід</h3>
+                    <p data-lang="en">A personalized photo session created for clients who would like to feel more comfortable in front of the camera and experience a professional photoshoot in a relaxed and supportive atmosphere. Perfect for first-time clients, solo portraits, couple sessions, close friends, maternity portraits, or small family moments in a more personalized format. This package is intended for non-commercial use only.</p>
+                    <p data-lang="uk">Персоналізована фотосесія, створена для клієнтів, які хочуть почуватися більш комфортно перед камерою та пройти професійну фотосесію у розслабленій та сприятливій атмосфері. Ідеальна для першого разу клієнтів, персональних портретів, сесій для пар, близьких друзів, портретів вагітності або малих сімейних моментів у більш персоналізованому форматі. Цей пакет призначений тільки для некомерційного використання.</p>
+                    <div class="price">$240 CAD</div>
+                    <ul>
+                        <li data-lang="en">45-minute session</li>
+                        <li data-lang="uk">45-хвилинна сесія</li>
+                    </ul>
+                    <div class="add-ons">
+                        <h4 data-lang="en">Add-ons</h4>
+                        <h4 data-lang="uk">Додатки</h4>
+                        <p data-lang="en">Extra Image: +$20 | Full Gallery: +$160</p>
+                        <p data-lang="uk">Додаткове фото: +$20 | Повна галерея: +$160</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-lang="en">Signature Session</h3>
+                    <h3 data-lang="uk">Фірмова Сесія</h3>
+                    <p data-lang="en">A personalized and creative photo session with a more artistic and cinematic approach. Perfect for portraits, couples, maternity, lifestyle photography, friends, and family sessions with more time for creativity, storytelling, and personalized direction. This package is intended for non-commercial use only.</p>
+                    <p data-lang="uk">Персоналізована та творча фотосесія із більш художнім та кінематографічним підходом. Ідеальна для портретів, пар, вагітності, lifestyle фотографії, друзів та сімейних сесій з більшим часом для творчості, оповідання та персоналізованого керування. Цей пакет призначений тільки для некомерційного використання.</p>
+                    <div class="price">$350 CAD</div>
+                    <ul>
+                        <li data-lang="en">1-hour session</li>
+                        <li data-lang="uk">1-годинна сесія</li>
+                    </ul>
+                    <div class="add-ons">
+                        <h4 data-lang="en">Add-ons</h4>
+                        <h4 data-lang="uk">Додатки</h4>
+                        <p data-lang="en">Extra Image: +$20 | Full Gallery: +$220</p>
+                        <p data-lang="uk">Додаткове фото: +$20 | Повна галерея: +$220</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-lang="en">Branding Mini</h3>
+                    <h3 data-lang="uk">Мініатюра Брендування</h3>
+                    <p data-lang="en">A short branding photo session created for small businesses, creators, beauty professionals, cafés, coffee shops, Instagram brands, and personal brands looking for fresh and aesthetic visual content for social media and online presence. Perfect for small businesses, beauty industry, cafés and coffee shops, creators and influencers, Instagram brands, and personal branding. Content can include portraits, products, interiors, details, atmosphere, and visual storytelling depending on the brand's needs.</p>
+                    <p data-lang="uk">Коротка сесія брендування, створена для малих підприємств, творців, фахівців краси, кафе, кавеарень, Instagram брендів та персональних брендів, які шукають свіжий та естетичний візуальний контент для соціальних медіа та онлайн-присутності. Ідеальна для малих підприємств, індустрії краси, кафе та кавеарень, творців та інфлюенсерів, Instagram брендів та персонального брендування. Контент може включати портрети, товари, інтер'єри, деталі, атмосферу та візуальне оповідання залежно від потреб бренду.</p>
+                    <div class="price">$350 CAD</div>
+                    <ul>
+                        <li data-lang="en">2-hour session</li>
+                        <li data-lang="uk">2-годинна сесія</li>
+                    </ul>
+                    <div class="add-ons">
+                        <h4 data-lang="en">Add-ons</h4>
+                        <h4 data-lang="uk">Додатки</h4>
+                        <p data-lang="en">Extra Image: +$30 | Full Gallery: +$250</p>
+                        <p data-lang="uk">Додаткове фото: +$30 | Повна галерея: +$250</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-lang="en">Content Creation</h3>
+                    <h3 data-lang="uk">Створення Контенту</h3>
+                    <p data-lang="en">A full creative content session designed for businesses, creators, brands, cafés, beauty professionals, boutiques, and personal brands looking for aesthetic and cohesive visual content for social media, marketing, and online presence. Perfect for small businesses, cafés and coffee shops, beauty and wellness industry, creators and influencers, Instagram brands, boutiques and lifestyle brands, and personal branding. Content can include portraits, products, interiors, details, atmosphere, behind-the-scenes moments, and visual storytelling depending on the brand's needs.</p>
+                    <p data-lang="uk">Повна творча сесія створення контенту, призначена для підприємств, творців, брендів, кафе, фахівців краси, бутиків та персональних брендів, які шукають естетичний та узгоджений візуальний контент для соціальних медіа, маркетингу та онлайн-присутності. Ідеальна для малих підприємств, кафе та кавеарень, індустрії краси та оздоровлення, творців та інфлюенсерів, Instagram брендів, бутиків та lifestyle брендів, та персонального брендування. Контент може включати портрети, товари, інтер'єри, деталі, атмосферу, закулісні моменти та візуальне оповідання залежно від потреб бренду.</p>
+                    <div class="price">$800 CAD</div>
+                    <ul>
+                        <li data-lang="en">4-hour session</li>
+                        <li data-lang="uk">4-годинна сесія</li>
+                    </ul>
+                    <div class="add-ons">
+                        <h4 data-lang="en">Add-ons</h4>
+                        <h4 data-lang="uk">Додатки</h4>
+                        <p data-lang="en">Extra Image: +$40 | Full Gallery: +$500</p>
+                        <p data-lang="uk">Додаткове фото: +$40 | Повна галерея: +$500</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3 data-lang="en">Monthly Content</h3>
+                    <h3 data-lang="uk">Місячний Контент</h3>
+                    <p data-lang="en">A full monthly content creation package designed for businesses, brands, cafés, beauty professionals, boutiques, creators, and personal brands looking for consistent, aesthetic, and cohesive visual content for social media and online promotion. This package is created for brands that would like to receive a full month of ready-to-post visual content from one creative production session. Perfect for small businesses, cafés and coffee shops, beauty and wellness industry, boutiques and lifestyle brands, creators and influencers, Instagram brands, and personal branding. Content can include portraits, products, interiors, details, atmosphere, behind-the-scenes moments, lifestyle content, and visual storytelling depending on the brand's needs.</p>
+                    <p data-lang="uk">Повний пакет місячного створення контенту, призначений для підприємств, брендів, кафе, фахівців краси, бутиків, творців та персональних брендів, які шукають послідовний, естетичний та узгоджений візуальний контент для соціальних медіа та онлайн-просування. Цей пакет створений для брендів, які хочуть отримати повний місяць готового до публікації візуального контенту з однієї творчої виробничої сесії. Ідеальна для малих підприємств, кафе та кавеарень, індустрії краси та оздоровлення, бутиків та lifestyle брендів, творців та інфлюенсерів, Instagram брендів та персонального брендування. Контент може включати портрети, товари, інтер'єри, деталі, атмосферу, закулісні моменти, lifestyle контент та візуальне оповідання залежно від потреб бренду.</p>
+                    <div class="price">$3000 CAD</div>
+                    <ul>
+                        <li data-lang="en">Full month of content</li>
+                        <li data-lang="uk">Повний місяць контенту</li>
+                    </ul>
+                    <div class="add-ons">
+                        <h4 data-lang="en">Custom pricing</h4>
+                        <h4 data-lang="uk">Індивідуальне ціноутворення</h4>
+                        <p data-lang="en">Contact for details</p>
+                        <p data-lang="uk">Зв'яжіться для деталей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 data-lang="en">Portfolio</h2>
+            <h2 data-lang="uk">Портфоліо</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openModal(0)"><img src="images/portfolio-1.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(1)"><img src="images/portfolio-2.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(2)"><img src="images/portfolio-3.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(3)"><img src="images/portfolio-4.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(4)"><img src="images/portfolio-5.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(5)"><img src="images/portfolio-7.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(6)"><img src="images/portfolio-8.jpg" alt=""></div>
+                <div class="portfolio-item" onclick="openModal(7)"><img src="images/portfolio-9.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog">
+        <div class="container">
+            <h2 data-lang="en">News & Tips</h2>
+            <h2 data-lang="uk">Новини і Поради</h2>
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="blog-image"><img src="images/hero-1.jpg" alt=""></div>
+                    <div class="blog-content">
+                        <div class="blog-date" data-lang="en">May 2026</div>
+                        <div class="blog-date" data-lang="uk">Май 2026</div>
+                        <h3 data-lang="en">5 Tips for Comfortable Photoshoots</h3>
+                        <h3 data-lang="uk">5 порад для комфортної фотосесії</h3>
+                        <p data-lang="en">Feel relaxed and confident in front of the camera with these essential tips for a successful photoshoot experience.</p>
+                        <p data-lang="uk">Почувайтеся розслаблено та впевнено перед камерою з цими важливими поради для успішної фотосесії.</p>
+                    </div>
+                </article>
+                <article class="blog-post">
+                    <div class="blog-image"><img src="images/hero-2.jpg" alt=""></div>
+                    <div class="blog-content">
+                        <div class="blog-date" data-lang="en">April 2026</div>
+                        <div class="blog-date" data-lang="uk">Квітень 2026</div>
+                        <h3 data-lang="en">Fashion Photography Trends 2026</h3>
+                        <h3 data-lang="uk">Тренди модної фотографії 2026</h3>
+                        <p data-lang="en">Discover the latest trends in fashion photography and how to incorporate them into your personal branding.</p>
+                        <p data-lang="uk">Дізнайтеся про останні тренди в модній фотографії та як їх впровадити у ваш особистий бренд.</p>
+                    </div>
+                </article>
+                <article class="blog-post">
+                    <div class="blog-image"><img src="images/hero-3.jpg" alt=""></div>
+                    <div class="blog-content">
+                        <div class="blog-date" data-lang="en">March 2026</div>
+                        <div class="blog-date" data-lang="uk">Березень 2026</div>
+                        <h3 data-lang="en">Upcoming Events & Sessions</h3>
+                        <h3 data-lang="uk">Відбулися заходи та сесії</h3>
+                        <p data-lang="en">Stay updated on upcoming photography sessions, workshops, and special collaborations happening this season.</p>
+                        <p data-lang="uk">Будьте в курсі майбутніх фотосесій, семінарів та спеціальних співпраць цього сезону.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING & POLICY SECTION -->
+    <section id="policy">
+        <div class="container">
+            <h2 data-lang="en">Booking & Session Policy</h2>
+            <h2 data-lang="uk">Політика бронювання та сесії</h2>
+            <div class="policy-content">
+                <div class="policy-section">
+                    <h3 data-lang="en">Booking Process</h3>
+                    <h3 data-lang="uk">Процес бронювання</h3>
+                    <p data-lang="en">To book a session, please fill out the contact form below. Once your request is received, Anna will review your information and respond within 24-48 hours to confirm availability and discuss your session details, vision, location preferences, and any special requirements you may have.</p>
+                    <p data-lang="uk">Щоб забронювати сесію, будь ласка, заповніть форму контактів внизу. Після отримання вашого запиту Анна переглянути вашу інформацію та відповідь протягом 24-48 годин, щоб підтвердити доступність та обговорити деталі вашої сесії, бачення, переваги місцезнаходження та будь-які спеціальні вимоги, які у вас можуть бути.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 data-lang="en">Deposit & Payment</h3>
+                    <h3 data-lang="uk">Депозит та оплата</h3>
+                    <p data-lang="en">A 50% non-refundable deposit is required to secure your session date. The remaining balance is due before the session begins. We accept all major payment methods including e-transfer, credit card, and online payment platforms for your convenience.</p>
+                    <p data-lang="uk">50% невідшкодовуваного депозиту потрібно для забезпечення дати вашої сесії. Залишок повинен бути сплачений до початку сесії. Ми приймаємо всі основні способи оплати, включаючи e-transfer, кредитну карту та онлайн-платіжні платформи для вашої зручності.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 data-lang="en">Cancellation & Rescheduling</h3>
+                    <h3 data-lang="uk">Скасування та перенесення</h3>
+                    <p data-lang="en">If you need to cancel or reschedule your session, please notify Anna at least 14 days in advance. Cancellations made less than 14 days before the session date will forfeit the deposit. Rescheduling to a different date is available based on availability.</p>
+                    <p data-lang="uk">Якщо вам потрібно скасувати або перенести вашу сесію, будь ласка, повідомте Анну принаймні за 14 днів до цього. Скасування, зроблені менше ніж за 14 днів до дати сесії, призведуть до втрати депозиту. Перенесення на іншу дату доступно залежно від доступності.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 data-lang="en">Session Preparation</h3>
+                    <h3 data-lang="uk">Підготовка до сесії</h3>
+                    <p data-lang="en">Before your session, Anna will provide you with detailed guidance on outfit choices, styling, location scouting, and preparation tips to ensure the best possible results. A pre-session consultation will be scheduled to discuss your vision and any special requests.</p>
+                    <p data-lang="uk">Перед вашою сесією Анна надасть вам детальне керівництво щодо вибору одягу, стайлінгу, розвідування місцезнаходження та порад з підготовки, щоб забезпечити найкращі можливі результати. Консультація перед сесією буде розпланована, щоб обговорити вашу візію та будь-які спеціальні запити.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 data-lang="en">Image Usage Rights</h3>
+                    <h3 data-lang="uk">Права на використання зображень</h3>
+                    <p data-lang="en">All images delivered to you are your exclusive property for personal use. Anna retains the right to use images for portfolio, website, and promotional materials with your permission. Commercial usage requires additional licensing fees.</p>
+                    <p data-lang="uk">Усі зображення, доставлені вам, є вашою виключною власністю для особистого використання. Анна зберігає право використовувати зображення для портфолія, веб-сайту та промо-матеріалів з вашого дозволу. Комерційне використання потребує додаткових ліцензійних зборів.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 data-lang="en">Retouching & Editing</h3>
+                    <h3 data-lang="uk">Ретушування та редагування</h3>
+                    <p data-lang="en">All delivered images include professional retouching and editing. Natural retouching is applied to all portraits, with options for high-end beauty and fashion retouching available upon request for an additional fee.</p>
+                    <p data-lang="uk">Усі доставлені зображення включають професійне ретушування та редагування. Природне ретушування застосовується до всіх портретів, з можливістю високовартісного ретушування краси та моди доступними за запитом за додаткову плату.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 data-lang="en">Delivery Timeline</h3>
+                    <h3 data-lang="uk">Графік доставки</h3>
+                    <p data-lang="en">Edited and fully retouched images will be delivered within 2-3 weeks of your session date through a private online gallery. High-resolution files are provided for printing and digital use. Express delivery options are available for an additional fee.</p>
+                    <p data-lang="uk">Відредаговані та повністю ретушовані зображення будуть доставлені протягом 2-3 тижнів після дати вашої сесії через приватну онлайн-галерею. Файли високої роздільної здатності надаються для друку та цифрового використання. Варіанти експрес-доставки доступні за додаткову плату.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM SECTION -->
+    <section id="booking">
+        <div class="container">
+            <h2 data-lang="en">Book Your Session</h2>
+            <h2 data-lang="uk">Забронюйте вашу сесію</h2>
+            <div class="booking-container">
+                <form class="booking-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label data-lang="en">Your Name</label>
+                        <label data-lang="uk">Ваше ім'я</label>
+                        <input type="text" required placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="en">Email</label>
+                        <label data-lang="uk">Електронна пошта</label>
+                        <input type="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="en">Phone</label>
+                        <label data-lang="uk">Телефон</label>
+                        <input type="tel" placeholder="+1 (204) 698-1788">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="en">Session Type</label>
+                        <label data-lang="uk">Тип сесії</label>
+                        <input type="text" placeholder="e.g., Mini Session, Branding">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="en">Preferred Date</label>
+                        <label data-lang="uk">Бажана дата</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="en">Tell us about your vision</label>
+                        <label data-lang="uk">Розкажіть нам про вашу візію</label>
+                        <textarea placeholder="Describe your session vision, style preferences, and any special requests..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span data-lang="en">SEND REQUEST</span>
+                        <span data-lang="uk">НАДІСЛАТИ ЗАПИТ</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+            <h2 data-lang="en">Get In Touch</h2>
+            <h2 data-lang="uk">Зв'яжіться</h2>
+            <div class="contact-content">
+                <p data-lang="en">Have questions or want to discuss your session? Reach out through any of these channels:</p>
+                <p data-lang="uk">У вас є питання або ви хочете обговорити вашу сесію? Зв'яжіться через будь-який з цих каналів:</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/hanna_sorokina" class="social-link" target="_blank">
+                        📷 <span data-lang="en">Instagram</span><span data-lang="uk">Instagram</span>
+                    </a>
+                    <a href="https://wa.me/12046981788" class="social-link" target="_blank">
+                        💬 <span data-lang="en">WhatsApp</span><span data-lang="uk">WhatsApp</span>
+                    </a>
+                    <a href="mailto:mir12312@ukr.net" class="social-link">
+                        ✉️ <span data-lang="en">Email</span><span data-lang="uk">Електронна пошта</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY BOOK BUTTON -->
+    <button class="sticky-book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">
+        <span data-lang="en">BOOK NOW</span>
+        <span data-lang="uk">ЗАБРОНЮВАТИ</span>
+    </button>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <button class="modal-nav modal-prev" onclick="prevImage()">‹</button>
+            <img id="modalImage" src="" alt="">
+            <button class="modal-nav modal-next" onclick="nextImage()">›</button>
+        </div>
+    </div>
+
+    <script>
+        // Language Toggle
+        let isUkrainian = false;
+
+        function updateLanguage() {
+            document.documentElement.lang = isUkrainian ? 'uk' : 'en';
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const lang = el.getAttribute('data-lang');
+                const shouldShow = isUkrainian ? lang === 'uk' : lang === 'en';
+                if (shouldShow) {
+                    el.style.display = '';
+                    el.removeAttribute('hidden');
+                } else {
+                    el.style.display = 'none !important';
+                    el.setAttribute('hidden', '');
+                }
+            });
+            document.querySelector('.lang-toggle').textContent = isUkrainian ? 'EN' : 'UA';
+            localStorage.setItem('lang', isUkrainian ? 'uk' : 'en');
+        }
+
+        function toggleLanguage() {
+            isUkrainian = !isUkrainian;
+            updateLanguage();
+        }
+
+        // Menu Toggle
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+
+        // Close menu when link clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+
+        // Initialize language
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang === 'uk') {
+            isUkrainian = true;
+            updateLanguage();
+        }
+
+        // Modal with Gallery Navigation
+        const portfolioImages = [
+            'images/portfolio-1.jpg',
+            'images/portfolio-2.jpg',
+            'images/portfolio-3.jpg',
+            'images/portfolio-4.jpg',
+            'images/portfolio-5.jpg',
+            'images/portfolio-7.jpg',
+            'images/portfolio-8.jpg',
+            'images/portfolio-9.jpg'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openModal(index) {
+            currentImageIndex = index;
+            document.getElementById('modalImage').src = portfolioImages[currentImageIndex];
+            document.getElementById('imageModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
+            document.getElementById('modalImage').src = portfolioImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
+            document.getElementById('modalImage').src = portfolioImages[currentImageIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('imageModal');
+            if (modal.classList.contains('active')) {
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'Escape') closeModal();
+            }
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const email = 'mir12312@ukr.net';
+            const subject = 'New Session Booking Request';
+            const body = `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}\n\nSession Details: ${formData.get('session')}\nPreferred Date: ${formData.get('date')}\n\nVision:\n${formData.get('vision')}`;
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200 && window.pageYOffset < sectionTop + sectionHeight - 200) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + section.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
