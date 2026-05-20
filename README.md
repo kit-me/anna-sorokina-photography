@@ -63,7 +63,9 @@ anna-sorokina-photography/
 
 ## Live Demo
 
-🔗 **[Visit the website](https://anna-sorokina.kit.me.st)**
+🔗 **[Visit the website](https://kit-me.github.io/anna-sorokina-photography)**
+
+*(Hosted on GitHub Pages)*
 
 ## Usage
 
